@@ -1,0 +1,137 @@
+/* =========================
+   CAROUSEL LIST
+   ========================= */ 
+   
+.slider {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Default: mobile = 1 slide */
+.slide {
+  flex: 0 0 100%;
+  padding: 5px;
+}
+
+/* Desktop ≥ md = 2 slide */
+@media (min-width: 768px) {
+  .slide {
+    flex: 0 0 50%;
+  }
+}
+
+/* Image biar tidak kepotong */
+.slide img {
+  width: 100%;
+  height: auto; /* penting */
+  object-fit: contain; /* bukan cover */
+  display: block;
+}
+
+.indicators {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.indicator {
+  width: 40px;
+  height: 8px;
+  border-radius: 4px;
+  background: #EEE;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+.indicator.active {
+  width: 60px;
+  height: 10px;
+  background: #E1E1E1;
+}
+
+.indicator .progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #0743f5, #1240c9);
+  transition: none;
+}
+
+.indicator.active .progress {
+  transition: width linear;
+} 
+
+@-webkit-keyframes ripple {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0.5;
+  }
+  100% {
+    width: 150px;
+    height: 150px;
+    opacity: 0;
+  }
+}
+
+@keyframes ripple {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0.5;
+  }
+  100% {
+    width: 150px;
+    height: 150px;
+    opacity: 0;
+  }
+}
+.ripple:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  background-color: currentColor;
+  visibility: hidden;
+  z-index: 2;
+}
+.ripple:not(:active):before {
+  -webkit-animation: ripple 0.4s cubic-bezier(0, 0, 0.2, 1);
+          animation: ripple 0.4s cubic-bezier(0, 0, 0.2, 1);
+  transition: visibility 0.4s step-end;
+}
+.ripple:active:before {
+  visibility: visible;
+}
+
+.scroll-hidden {
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch;
+
+  /* Firefox */
+  scrollbar-width: none !important;
+
+  /* IE / Edge lama */
+  -ms-overflow-style: none;
+}
+
+/* Chrome, Safari, Android */
+.scroll-hidden::-webkit-scrollbar {
+  width: 0 !important;
+  height: 0 !important;
+  display: none !important;
+}
