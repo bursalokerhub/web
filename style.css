@@ -135,3 +135,26 @@
   height: 0 !important;
   display: none !important;
 }
+
+/* Menyembunyikan Scrollbar agar UI bersih */
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE & Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Categories & Menu */
+.categories .column {
+  width: 85px;
+}
+
+.categories .box {
+  height: 80px;
+}
+
+.categories .img {
+  max-height: 60px;
+  object-fit: contain;
+}
