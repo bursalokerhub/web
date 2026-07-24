@@ -63,7 +63,7 @@
   left: 0;
   height: 100%;
   width: 0%;
-  background: linear-gradient(90deg, #0743f5, #1240c9);
+  background: linear-gradient(90deg, #ff1000, #ff0000);
   transition: none;
 }
 
@@ -125,7 +125,7 @@
   /* Firefox */
   scrollbar-width: none !important;
 
-  /* IE / Edge lama */
+  /* IE / Edge before */
   -ms-overflow-style: none;
 }
 
@@ -136,7 +136,7 @@
   display: none !important;
 }
 
-/* Menyembunyikan Scrollbar agar UI bersih */
+/* Hidden Scrollbar for UI Clean */
 .no-scrollbar::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Edge */
 }
@@ -158,3 +158,40 @@
   max-height: 60px;
   object-fit: contain;
 }
+
+/* Social Network */
+.social-link {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #333;
+  background-color: #f8f9fa;
+  transition: all 0.2s ease-in-out;
+}
+
+.social-link:hover {
+  background-color: #eef2f7;
+  transform: translateY(-2px);
+  color: #000;
+}
+
+.social-icon {
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  margin-right: 15px;
+}
+
+/* Color platform social */
+.bg-instagram { background-color: #e1306c; color: #fff; }
+.bg-whatsapp  { background-color: #25d366; color: #fff; }
+.bg-youtube   { background-color: #ff0000; color: #fff; }
+.bg-tiktok    { background-color: #000000; color: #fff; }
+.bg-linkedin  { background-color: #0a66c2; color: #fff; }
+.bg-github    { background-color: #24292e; color: #fff; }
